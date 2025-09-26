@@ -1,7 +1,12 @@
 import VideoCallSettings from "@/components/pages/VideoCallSettings";
 
 const page = () => {
-  return <VideoCallSettings></VideoCallSettings>;
+  return (
+    <>
+      <title>Video Call Settings</title>
+      <VideoCallSettings></VideoCallSettings>
+    </>
+  );
 };
 
 export default page;

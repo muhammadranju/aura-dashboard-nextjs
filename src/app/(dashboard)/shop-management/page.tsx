@@ -3,6 +3,7 @@ import { ShopManagement } from "@/components/pages/shop-management/ShopManagemen
 const page = () => {
   return (
     <div>
+      <title>Shop Management</title>
       <ShopManagement />
     </div>
   );

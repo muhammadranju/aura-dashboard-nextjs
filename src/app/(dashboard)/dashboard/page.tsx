@@ -38,6 +38,7 @@ const crashFreeData = [
 const page = () => {
   return (
     <div>
+      <title>Dashboard Overview</title>
       <div className="flex gap-6 mb-6">
         {/* Matches Created */}
         <Card className="bg-white/20 rounded-lg p-6 flex-1 w-full  shadow-2xl">
