@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { Filter, Edit3, Trash2, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,8 +11,22 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+// Define types for our data
+interface Bundle {
+  id: number;
+  totalAura: string;
+  totalPrice: string;
+  userPurchase: string;
+  createdOn: string;
+  status: string;
+}
+
+interface ToggleStates {
+  [key: number]: boolean;
+}
+
 // Sample bundle data based on the new design
-const bundleData = [
+const bundleData: Bundle[] = [
   {
     id: 1,
     totalAura: "550",
@@ -79,18 +93,17 @@ const bundleData = [
   },
 ];
 
-export function PromoCodeManagement() {
-  const [statusFilter, setStatusFilter] = useState("Active");
-  const [bundleFilter, setBundleFilter] = useState("Aura Bundle");
-  const [toggleStates, setToggleStates] = useState(
-    bundleData.reduce((acc, bundle) => {
+export function PromoCodeManagement(): JSX.Element {
+  const [statusFilter, setStatusFilter] = useState<string>("Active");
+  const [toggleStates, setToggleStates] = useState<ToggleStates>(
+    bundleData.reduce((acc: ToggleStates, bundle: Bundle) => {
       acc[bundle.id] = true;
       return acc;
     }, {})
   );
 
-  const handleToggle = (id) => {
-    setToggleStates((prev) => ({
+  const handleToggle = (id: number): void => {
+    setToggleStates((prev: ToggleStates) => ({
       ...prev,
       [id]: !prev[id],
     }));
@@ -149,7 +162,7 @@ export function PromoCodeManagement() {
 
         {/* Table Body */}
         <div className="p-4 space-y-4">
-          {bundleData.map((bundle, index) => (
+          {bundleData.map((bundle: Bundle) => (
             <div
               key={bundle.id}
               className="bg-white/90 backdrop-blur-sm rounded-2xl border border-white/20 p-4 hover:bg-white/95 transition-all duration-200"

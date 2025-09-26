@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useState } from "react";
-import { Filter, Edit3, Trash2, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -11,6 +9,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Edit3, SlidersHorizontal, Trash2 } from "lucide-react";
+import { useState } from "react";
 
 // Sample package data based on the new design
 const packageData = [
@@ -100,7 +100,7 @@ const packageData = [
 export function AuraPackage() {
   const [statusFilter, setStatusFilter] = useState("Active");
   const [toggleStates, setToggleStates] = useState(
-    packageData.reduce((acc, pkg) => {
+    packageData.reduce((acc: Record<number, boolean>, pkg) => {
       acc[pkg.id] = true;
       return acc;
     }, {})
@@ -155,7 +155,7 @@ export function AuraPackage() {
 
         {/* Table Body */}
         <div className="p-4 space-y-4">
-          {packageData.map((pkg, index) => (
+          {packageData.map((pkg) => (
             <div
               key={pkg.id}
               className="bg-white/90 backdrop-blur-sm rounded-2xl border border-white/20 p-4 hover:bg-white/95 transition-all duration-200"

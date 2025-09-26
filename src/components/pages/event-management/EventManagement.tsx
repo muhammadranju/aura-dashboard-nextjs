@@ -82,14 +82,14 @@ const bundleData = [
 export function EventManagement() {
   const [statusFilter, setStatusFilter] = useState("Active");
   const [bundleFilter, setBundleFilter] = useState("Aura Bundle");
-  const [toggleStates, setToggleStates] = useState(
-    bundleData.reduce((acc, bundle) => {
+  const [toggleStates, setToggleStates] = useState<Record<number, boolean>>(
+    bundleData.reduce((acc: Record<number, boolean>, bundle) => {
       acc[bundle.id] = true;
       return acc;
-    }, {})
+    }, {} as Record<number, boolean>)
   );
 
-  const handleToggle = (id) => {
+  const handleToggle = (id: number) => {
     setToggleStates((prev) => ({
       ...prev,
       [id]: !prev[id],
@@ -153,7 +153,7 @@ export function EventManagement() {
 
         {/* Table Body */}
         <div className="p-4 space-y-4">
-          {bundleData.map((bundle, index) => (
+          {bundleData.map((bundle,) => (
             <div
               key={bundle.id}
               className="bg-white/90 backdrop-blur-sm rounded-2xl border border-white/20 p-4 hover:bg-white/95 transition-all duration-200"

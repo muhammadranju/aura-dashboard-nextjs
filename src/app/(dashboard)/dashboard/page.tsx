@@ -1,6 +1,5 @@
 "use client";
 import ChartHeader from "@/components/dashboard/ChartHeader";
-import { DemographicsCharts } from "@/components/dashboard/DemographicsCharts";
 import EthnicityChart from "@/components/dashboard/EthnicityChart";
 import StatisticsDashboard from "@/components/dashboard/StatisticsDashboard";
 import MonetizationFeaturesTable from "@/components/pages/analytics-reports/MonetizationFeaturesTable";

@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { Filter, Edit3, Trash2, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -10,6 +8,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Edit3, SlidersHorizontal, Trash2 } from "lucide-react";
+import { useState } from "react";
 
 // Sample bundle data based on the new design
 const bundleData = [
@@ -83,13 +83,13 @@ export function ShopManagement() {
   const [statusFilter, setStatusFilter] = useState("Active");
   const [bundleFilter, setBundleFilter] = useState("Aura Bundle");
   const [toggleStates, setToggleStates] = useState(
-    bundleData.reduce((acc, bundle) => {
+    bundleData.reduce((acc: Record<number, boolean>, bundle) => {
       acc[bundle.id] = true;
       return acc;
     }, {})
   );
 
-  const handleToggle = (id) => {
+  const handleToggle = (id: number) => {
     setToggleStates((prev) => ({
       ...prev,
       [id]: !prev[id],
@@ -156,7 +156,7 @@ export function ShopManagement() {
 
         {/* Table Body */}
         <div className="p-4 space-y-4">
-          {bundleData.map((bundle, index) => (
+          {bundleData.map((bundle) => (
             <div
               key={bundle.id}
               className="bg-white/90 backdrop-blur-sm rounded-2xl border border-white/20 p-4 hover:bg-white/95 transition-all duration-200"

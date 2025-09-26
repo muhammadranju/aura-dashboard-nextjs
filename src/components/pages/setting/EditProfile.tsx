@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -45,14 +46,14 @@ const ProfileEditForm = () => {
     });
   };
 
-  const handleProfileChange = (field, value) => {
+  const handleProfileChange = (field: string, value: any) => {
     setProfileData((prev) => ({
       ...prev,
       [field]: value,
     }));
   };
 
-  const handlePasswordChange = (field, value) => {
+  const handlePasswordChange = (field: string, value: any) => {
     setPasswordData((prev) => ({
       ...prev,
       [field]: value,

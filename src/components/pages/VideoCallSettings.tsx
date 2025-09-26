@@ -1,16 +1,10 @@
 "use client";
-
-// import Header from "@/components/Header";
-// import Sidebar from "@/components/Sidebar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-// import { Input } from "@/components/ui/input";
-// import { Slider } from "@/components/ui/slider";
 import { Upload } from "lucide-react";
 import { useState } from "react";
-import Header from "../dashboard/Header";
-import { Slider } from "../ui/slider";
 import { Input } from "../ui/input";
+import { Slider } from "../ui/slider";
 
 export default function VideoCallSettings() {
   const [timerValue, setTimerValue] = useState([60]);

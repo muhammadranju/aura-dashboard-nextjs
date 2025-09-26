@@ -1,8 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
-import { Users, DollarSign, ShoppingBag, TrendingUp } from "lucide-react";
+import { DollarSign, ShoppingBag, TrendingUp, Users } from "lucide-react";
+import { JSX, useState } from "react";
 
-const StatisticsCard = ({ title, value, icon: Icon, className = "" }): any => (
+const StatisticsCard = ({
+  title = "",
+  value = "",
+  icon: Icon = Users,
+  className = "",
+}): JSX.Element => (
   <div
     className={`bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30 ${className}`}
   >
@@ -48,7 +52,7 @@ const StatisticsDashboard = () => {
     },
   };
 
-  const currentStats = statsData[selectedPeriod];
+  const currentStats = statsData[selectedPeriod as keyof typeof statsData];
 
   return (
     <div className="">

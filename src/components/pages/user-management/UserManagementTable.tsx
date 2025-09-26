@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { Search, ChevronLeft, ChevronRight, Filter, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -11,6 +9,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Search,
+  SlidersHorizontal,
+} from "lucide-react";
+import { useState } from "react";
 
 // Sample user data
 const userData = [
@@ -122,7 +127,7 @@ export function UserManagementTable() {
             <SelectTrigger className="w-32 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-xl h-12 py-6">
               <div className="flex items-center gap-2">
                 <SlidersHorizontal className="h-4 w-4 text-white" />
-                
+
                 <SelectValue />
               </div>
             </SelectTrigger>
@@ -167,7 +172,7 @@ export function UserManagementTable() {
 
         {/* Table Body */}
         <div className="p-4 space-y-4">
-          {userData.map((user, index) => (
+          {userData.map((user) => (
             <div
               key={user.id}
               className="bg-white/90 backdrop-blur-sm rounded-2xl border border-white/20 p-4 hover:bg-white/95 transition-all duration-200"
@@ -199,7 +204,7 @@ export function UserManagementTable() {
                     {user.status}
                   </span>
                 </div>
-                
+
                 {/* Action Column */}
                 <div className="flex items-center justify-center gap-2">
                   <Button
@@ -209,7 +214,7 @@ export function UserManagementTable() {
                   >
                     View Details
                   </Button>
-                  
+
                   <Select defaultValue="Active">
                     <SelectTrigger className="w-24 h-8 text-xs bg-cyan-500 text-white border-cyan-500 hover:bg-cyan-600 rounded-lg">
                       <SelectValue />
